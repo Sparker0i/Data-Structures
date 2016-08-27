@@ -7,7 +7,7 @@ public class Parantheses
 
   public boolean Match(String str)
   {
-    Stack<Character> s = new Stack(50);
+    Stack<Character> s = new Stack<Character>(50);
     for (char c : str.toCharArray())
     {
       if (opening.indexOf(c) != -1)     //Opening Tag
