@@ -1,16 +1,18 @@
+package com.stack;
+
 public class Stack<E>
 {
   private int size , top;
   private E[] data;
 
-  Stack()
+  public Stack()
   {
     size = 100;
     data = (E[]) new Object[size];
     top = -1;
   }
 
-  Stack(int n)
+  public Stack(int n)
   {
     size = n;
     data = (E[]) new Object[size];
