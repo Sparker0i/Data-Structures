@@ -1,4 +1,5 @@
-import com.stack.*;
+import com.parantheses.*;
+
 import java.util.Scanner;
 
 public class ParanthesesDriver
@@ -13,5 +14,6 @@ public class ParanthesesDriver
     String S = scan.next();
     Parantheses para = new Parantheses();
     System.out.println(para.Match(S));
+    scan.close();
   }
 }

@@ -5,14 +5,16 @@ public class Stack<E>
   private int size , top;
   private E[] data;
 
-  public Stack()
+  @SuppressWarnings("unchecked")
+public Stack()
   {
     size = 100;
     data = (E[]) new Object[size];
     top = -1;
   }
 
-  public Stack(int n)
+  @SuppressWarnings("unchecked")
+public Stack(int n)
   {
     size = n;
     data = (E[]) new Object[size];
