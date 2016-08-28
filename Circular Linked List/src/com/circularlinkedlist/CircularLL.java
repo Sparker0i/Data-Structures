@@ -27,7 +27,7 @@ public class CircularLL<E>
 			System.out.print(tmp.getData() + " ");
 			tmp=tmp.getNext();
 		}
-		if(rear!=null)
+		if(rear != null)
 			System.out.println(rear.getData());
 	}
 	
@@ -36,13 +36,13 @@ public class CircularLL<E>
 		Link<E> nptr = new Link<E>(e);
 		if(isEmpty()) 
 		{
-			front=nptr;
-			rear=front;
+			front = nptr;
+			rear = front;
 		}
 		else 
 		{
 			nptr.setNext(front);
-			front=nptr;
+			front = nptr;
 			rear.setNext(front);
 		}
 		count++;
@@ -53,12 +53,13 @@ public class CircularLL<E>
 		Link <E> nptr = new Link<E>(e);
 		if(isEmpty()) 
 		{
-			front=nptr;
-			rear=front;
+			front = nptr;
+			rear = front;
 		}
-		else {
+		else 
+		{
 			rear.setNext(nptr);
-			rear=rear.getNext();
+			rear = nptr;
 			rear.setNext(front);
 		}
 		count++;
@@ -67,7 +68,7 @@ public class CircularLL<E>
 	public void insertAt(E e,int p) 
 	{
 		Link<E> nptr = new Link<E>(e);
-		if(p==1) 
+		if(p == 1) 
 		{
 			insertFront(e);
 			return;
@@ -81,19 +82,19 @@ public class CircularLL<E>
 		{
 			Link<E> tmp=front;
 			int x=1;
-			while(tmp.getNext() != front) 
+			while(tmp.getNext() != front) 			//Processes till rear, terminates at rear.next
 			{
 				if(x == (p-1))
 					break;
 				x++;
-				tmp=tmp.getNext();
+				tmp = tmp.getNext();
 			}
 			if(x == (p-1)) 
 			{
 				nptr.setNext(tmp.getNext());
 				tmp.setNext(nptr);
 				if(rear == tmp)
-					rear=nptr;
+					rear = nptr;
 				count++;
 			}
 			else 
@@ -112,14 +113,14 @@ public class CircularLL<E>
 		}
 		else 
 		{
-			if(front==front.getNext()) 
+			if(front == front.getNext()) 
 			{
-				front=rear=null;
+				front = rear = null;
 				count--;
 			}
 			else 
 			{
-				front=front.getNext();
+				front = front.getNext();
 				rear.setNext(front);
 				count--;
 			}
@@ -153,7 +154,7 @@ public class CircularLL<E>
 				{
 					break;
 				}
-				tmp=tmp.getNext();
+				tmp = tmp.getNext();
 				x++;
 			}
 			if(x == (p-1)) 
@@ -167,7 +168,7 @@ public class CircularLL<E>
 				{
 					tmp.setNext(tmp.getNext().getNext());
 					if(tmp.getNext() == front)
-						rear=tmp;
+						rear = tmp;
 					count--;
 				}	
 			}
