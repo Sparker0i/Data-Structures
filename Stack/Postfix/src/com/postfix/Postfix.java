@@ -1,63 +1,87 @@
 package com.postfix;
-import com.stack.*;
 
-public class Postfix 
-{
-	public String PostfixEval (String S)
+import com.stack.*;
+import java.util.Scanner;
+
+public class Postfix {
+	String Input,Output;
+	
+	int precedence(char ch)
 	{
-		Stack<Character> s = new Stack<Character>();
-		StringBuilder postfix = new StringBuilder();
-		char elem;
-		for (char c : S.toCharArray())
+		switch(ch)
 		{
-			if (c == '(')
-				s.Push(c);
-			else if (c == ')')
-			{
-				while ((elem = s.Pop()) != '(')
-				{
-					postfix.append(elem);
-				}
-			}
-			else if (c == '+' || c == '-')
-			{
-				if (s.isEmpty())
-					s.Push(c);
-				else
-				{
-					elem = s.Pop();
-					do
-					{
-						postfix.append(elem);
-						elem = s.Pop();
-					}
-					while ((elem != '(' || elem != ')') && !s.isEmpty());
-					s.Push(elem);
-				}
-			}
-			else if (c == '*' || c == '/')
-			{
-				if (s.isEmpty())
-					s.Push(c);
-				else
-				{
-					elem = s.Pop();
-					do
-					{
-						s.Push(elem);
-						elem = s.Pop();
-					}
-					while ((elem != '+' || elem != '-' ) && !s.isEmpty());
-					s.Push(elem);
-				}
-			}
-			else
-				s.Push(c);
+			case '+':
+			case '-': return 1;
+			case '*':
+			case '/': return 2;
+			case '^': return 3;
+			case '(':
+			case ')': return -1;
+			default : return 0;
 		}
-		while (!s.isEmpty())
+	}
+	
+	public void convert() 
+	{
+		Output="";
+		System.out.println("ENTERED");
+		Stack<Character> A = new Stack<Character>(Input.length());
+		for(char c : Input.toCharArray()) 
 		{
-			postfix.append(s.Pop());
+			System.out.println("ENTERED in FOR " + c);
+			if(precedence(c) == 0) 
+			{
+				Output+=c;
+			}
+			
+			else if(c=='(') 
+			{
+				A.Push('(');
+			}
+			
+			else if(c==')') 
+			{
+				while(A.peek()!='(') 
+				{
+					Output+=A.peek();
+					A.Pop();
+				}
+				A.Pop();
+			}
+			
+			else 
+			{
+				while(!A.isEmpty()) 
+				{
+					if(precedence(A.peek()) >= precedence(c)) 
+					{
+						Output+=A.peek();
+						A.peek();
+					}
+					else
+						break;
+				}
+				A.Push(c);
+			}
 		}
-		return postfix.toString();
+		while(!A.isEmpty()) 
+		{
+			Output+=A.peek();
+			A.Pop();
+		}
+	}
+	
+	public void input() 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("ENTER ANY EXPRESSION : ");
+		Input=sc.nextLine();
+		sc.close();
+	}
+	
+	public void output() 
+	{
+		convert();
+		System.out.println(Output);
 	}
 }
