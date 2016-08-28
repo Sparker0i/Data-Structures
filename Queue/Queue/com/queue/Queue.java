@@ -12,6 +12,7 @@ public class Queue<E>
     data = (E[]) new Object[size];
     front = -1;
     rear = -1;
+    count = 0;
   }
 
   @SuppressWarnings("unchecked")
@@ -21,6 +22,7 @@ public class Queue<E>
     data = (E[]) new Object[size];
     front = -1;
     rear = -1;
+    count = 0;
   }
 
   public int getNum()
@@ -48,7 +50,7 @@ public class Queue<E>
     }
   }
 
-  public E Pop()
+  public E Dequeue()
   {
     if (front == size)
     {
@@ -59,14 +61,14 @@ public class Queue<E>
     {
       E temp = data[front];
       front++;
-      return temp;
       count--;
+      return temp;
     }
   }
 
   public boolean isEmpty()
   {
-    if (top == -1)
+    if (front == -1)
       return true;
     return false;
   }
