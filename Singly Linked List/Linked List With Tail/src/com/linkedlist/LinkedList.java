@@ -4,7 +4,7 @@ import com.link.*;
 
 public class LinkedList<E> 
 {
-	Link<E> head;
+	Link<E> head , tail;
 	int size;
 	
 	LinkedList()
@@ -16,53 +16,60 @@ public class LinkedList<E>
 	public void addFirst(E e)
 	{
 		Link<E> nptr = new Link<E>(e);
-		if (head == null)
+		if (isEmpty())
 		{
 			head = nptr;
 			head.setNext(null);
+			tail = head;
 		}
 		else
 		{
-			Link<E> temp = head;
 			head = nptr;
-			head.setNext(temp);
+			head.setNext(null);
 		}
 		++size;
 	}
 	
 	public void addLast(E e)
 	{
-		Link<E> nptr = new Link<E>(e) , curr = head;
-		while (curr.getNext() != null)
+		Link<E> nptr = new Link<E>(e);
+		if (isEmpty())
 		{
-			curr = curr.getNext();
+			head = nptr;
+			head.setNext(null);
+			tail = head;
 		}
-		curr.setNext(nptr);
-		++size;
+		else
+		{
+			tail = nptr;
+			tail.setNext(null);
+		}
 	}
 	
 	public E removeFirst()
 	{
-		if (head == null)
+		if (isEmpty())
 			return null;
 		else
 		{
-			Link<E> temp = head;
+			E e = head.getData();
 			head = head.getNext();
 			--size;
-			return temp.getData();
+			if (size == 0)
+				tail = null;
+			return e;
 		}
 	}
 	
 	public E First()
 	{
-		if (isEmpty())	return null;
+		if (isEmpty())		return null;
 		return head.getData();
 	}
 	
 	public E Last()
 	{
-		if (isEmpty())	return null;
+		if (isEmpty())		return null;
 		else
 		{
 			Link<E> curr = head;
@@ -81,12 +88,13 @@ public class LinkedList<E>
 		else 
 		{
 			Link<E> curr = head;
-			while (curr.getNext().getNext() != null)
+			while (curr.getNext() != tail)
 			{
 				curr = curr.getNext();
 			}
-			E data = curr.getNext().getData();
-			curr.setNext(null);
+			E data = tail.getData();
+			tail = curr;
+			tail.setNext(null);
 			return data;
 		}
 	}
