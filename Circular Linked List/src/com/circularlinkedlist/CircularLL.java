@@ -158,15 +158,15 @@ public class CircularLL<E>
 			}
 			if(x == (p-1)) 
 			{
-				if(front==front.getNext()) 
+				if(front == front.getNext()) 
 				{
-					front=rear=null;
+					front = rear = null;
 					count--;
 				}
 				else 
 				{
 					tmp.setNext(tmp.getNext().getNext());
-					if(tmp.getNext()==front)
+					if(tmp.getNext() == front)
 						rear=tmp;
 					count--;
 				}	
