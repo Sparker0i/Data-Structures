@@ -12,12 +12,12 @@ public class Parantheses
     for (char c : str.toCharArray())
     {
       if (opening.indexOf(c) != -1)     //Opening Tag
-        s.Enqueue(c);
+        s.Push(c);
       else if (closing.indexOf(c) != -1)    //Closing Tag
       {
         if (s.isEmpty())
           return false;
-        if (closing.indexOf(c) != opening.indexOf(s.Dequeue()))
+        if (closing.indexOf(c) != opening.indexOf(s.Pop()))
           return false;
       }
     }

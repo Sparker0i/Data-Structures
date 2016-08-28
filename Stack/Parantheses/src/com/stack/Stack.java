@@ -34,7 +34,7 @@ public Stack(int n)
       return data[top];
   }
 
-  public void Enqueue(E e)
+  public void Push(E e)
   {
     if (top == size)
     {
@@ -46,7 +46,7 @@ public Stack(int n)
     }
   }
 
-  public E Dequeue()
+  public E Pop()
   {
     if (top == -1)
     {
