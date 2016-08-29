@@ -56,7 +56,7 @@ public class Postfix {
 					if(precedence(A.peek()) >= precedence(c)) 
 					{
 						Output+=A.peek();
-						A.peek();
+						A.Pop();
 					}
 					else
 						break;
