@@ -51,4 +51,42 @@ public class BinaryTree {
 			preorder(node.getRight());
 		}
 	}
+	
+	public Link deleteNode(Link node, int data) {
+		if (node==null) {
+			return null;
+		}
+		if (data==node.getData()) {
+			if (node.getLeft()!=null && node.getRight()!=null) {
+			    Link minNode = getLowestFromRST(node.getRight());
+			    node.setData(minNode);
+			 
+			    node.setRight(deleteNode(node.getRight(), minNode.getData()));
+			    System.out.println(minNode);  
+			}
+			else if (node.getLeft()==null) {
+				return node.getRight();
+			}
+			else {
+				return node.getLeft();
+			}
+		}
+		else if (data>node.getData()) {
+		   node.setRight(deleteNode(node.getRight(), data));
+		}
+		else {
+		   node.setLeft(deleteNode(node.getLeft(), data));
+		}
+		return node;
+	 }
+		 
+	public Link getLowestFromRST(Link node) {
+		 if (node.getLeft()==null) {
+			 return node;
+		 }
+		 else {
+			 Link n = getLowestFromRST(node.getLeft());
+			 return n;
+		 }
+	 }
 }

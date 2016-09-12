@@ -11,6 +11,10 @@ public class Link
 		left = null;
 		right = null;
 	}
+	
+	public void setData(Link n) {
+		data = n.getData();
+	}
 
 	public int getData()
 	{
@@ -30,7 +34,7 @@ public class Link
 	public void setRight(Link n) {
 		right = n;
 	}
-
+	
 	public Link getRight() {
 		return right;
 	}
