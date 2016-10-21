@@ -24,8 +24,9 @@ public class LinkedList<E>
 		}
 		else
 		{
+			Link<E> temp = head;
 			head = nptr;
-			head.setNext(null);
+			head.setNext(temp);
 		}
 		++size;
 	}
@@ -41,6 +42,7 @@ public class LinkedList<E>
 		}
 		else
 		{
+			tail.setNext(nptr);
 			tail = nptr;
 			tail.setNext(null);
 		}
