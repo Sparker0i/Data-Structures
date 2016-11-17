@@ -3,24 +3,19 @@ package com.binarysearchtree;
 import com.mlink.*;
 
 public class BinarySearchTree {
-	Link root;
-	
-	public BinarySearchTree() {
-		root = null;
-	}
 	
 	public Link add(Link node, int n) {
 		Link temp = new Link(n);
-		if (root == null) {
-			root = temp;
+		if (node == null) {
+			node = temp;
 		}
-		else if (n >= root.getData()) {
-			root.setRight(add(node.getRight() , n));
+		else if (n >= node.getData()) {
+			node.setRight(add(node.getRight() , n));
 		}
 		else {
-			root.setLeft(add(node.getLeft() , n));
+			node.setLeft(add(node.getLeft() , n));
 		}
-		return root;
+		return node;
 	}
 	
 	public void preorder(Link node) {
@@ -45,5 +40,41 @@ public class BinarySearchTree {
 			System.out.print(node.getData() + " ");
 			preorder(node.getRight());
 		}
+	}
+	
+	public Link getLowestFromRST(Link node) {
+		if (node.getLeft() == null)
+			return node;
+		else {
+			return getLowestFromRST(node.getLeft());
+		}
+	}
+	
+	public Link deleteNode(Link node , int data) {
+		if (node==null) {
+			return null;
+		}
+		if (data==node.getData()) {
+			if (node.getLeft()!=null && node.getRight()!=null) {
+			    Link minNode = getLowestFromRST(node.getRight());
+			    node.setData(minNode.getData());
+			 
+			    node.setRight(deleteNode(node.getRight(), minNode.getData()));
+			    System.out.println(minNode.getData());  
+			}
+			else if (node.getLeft() == null) {
+				return node.getRight();
+			}
+			else {
+				return node.getLeft();
+			}
+		}
+		else if (data>node.getData()) {
+		   node.setRight(deleteNode(node.getRight(), data));
+		}
+		else {
+		   node.setLeft(deleteNode(node.getLeft(), data));
+		}
+		return node;
 	}
 }
