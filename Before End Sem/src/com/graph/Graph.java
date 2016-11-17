@@ -122,7 +122,6 @@ public class Graph
 	            stack.push(j);
 	            visited[j] = 1;
 	            element = j;
-	            j = 1;
 	            System.out.print(element + "\t");
 		        continue;
 	        }
@@ -139,7 +138,6 @@ public class Graph
 		            stack.push(i);
 		            visited[i] = 1;
 		            element = i;
-		            i = 1;
 		            System.out.print(element + "\t");
 			        continue;
 		        }
