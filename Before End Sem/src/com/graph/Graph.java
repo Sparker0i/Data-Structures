@@ -77,9 +77,18 @@ public class Graph
     {
         int N = matrix[source].length - 1;
         int[] visited = new int[N + 1];
-        int i, element;
+        int i, element, j = 1;
         visited[source] = 1;
         queue.add(source);
+        while (j < source)
+        {
+            if (matrix[source][j] == 1 && visited[j] == 0)
+            {
+                queue.add(j);
+                visited[j] = 1;
+            }
+            j++;
+        }
         while (!queue.isEmpty())
         {
             element = queue.remove();
@@ -102,10 +111,23 @@ public class Graph
         int N = matrix[source].length - 1;
         int visited[] = new int[N + 1];		
         int element = source;		
-        int i = source;		
+        int i = source, j = 1;		
         System.out.print(element + "\t");		
         visited[source] = 1;		
         stack.push(source);
+        while (j < i)
+		{
+	     	if (matrix[element][j] == 1 && visited[j] == 0)
+		    {
+	            stack.push(j);
+	            visited[j] = 1;
+	            element = j;
+	            j = 1;
+	            System.out.print(element + "\t");
+		        continue;
+	        }
+	        j++;
+		}
         while (!stack.isEmpty())
         {
 		    element = stack.peek();
