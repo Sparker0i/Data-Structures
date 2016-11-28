@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Before End Sem/Before End Sem.iml" filepath="$PROJECT_DIR$/Before End Sem/Before End Sem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Tree/Binary Tree.iml" filepath="$PROJECT_DIR$/Binary Tree/Binary Tree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Circular Linked List/Circular Linked List.iml" filepath="$PROJECT_DIR$/Circular Linked List/Circular Linked List.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Deque/Deque.iml" filepath="$PROJECT_DIR$/Deque/Deque.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Doubly Linked List/Doubly Linked List.iml" filepath="$PROJECT_DIR$/Doubly Linked List/Doubly Linked List.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack/HTML/HTML.iml" filepath="$PROJECT_DIR$/Stack/HTML/HTML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singly Linked List/Linked List With Tail/Linked List With Tail.iml" filepath="$PROJECT_DIR$/Singly Linked List/Linked List With Tail/Linked List With Tail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singly Linked List/Linked List Without Tail/Linked List Without Tail.iml" filepath="$PROJECT_DIR$/Singly Linked List/Linked List Without Tail/Linked List Without Tail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queue/Linked Queue/Linked Queue.iml" filepath="$PROJECT_DIR$/Queue/Linked Queue/Linked Queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queue/Musical Chairs/Musical Chairs.iml" filepath="$PROJECT_DIR$/Queue/Musical Chairs/Musical Chairs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack/Parantheses/Parantheses.iml" filepath="$PROJECT_DIR$/Stack/Parantheses/Parantheses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack/Postfix/Postfix.iml" filepath="$PROJECT_DIR$/Stack/Postfix/Postfix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queue/Queue.iml" filepath="$PROJECT_DIR$/Queue/Queue.iml" />
+    </modules>
+  </component>
+</project>
